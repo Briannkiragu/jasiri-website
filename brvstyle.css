@@ -1,0 +1,1035 @@
+#header {
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 80px;
+background-color: rgba(255, 255, 255, 0.247);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+height: 45px;
+z-index: 999;
+position: sticky;
+top: 0;
+left: 0;
+background-size: cover;
+border-radius: 10px;
+
+
+}
+.mwili{
+background-size: cover;
+background-image: url(Artwork/card.jpg);
+background-color:black;
+background-size: cover;
+padding-top: 0%;
+height: 80%;
+padding-right: 50px;
+}
+
+
+#navbar{
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#navbar li {
+
+list-style: none;
+padding: 0 20px;
+position: relative;
+
+
+}
+
+#navbar li a{
+
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color:rgba(17, 17, 17, 0.938);
+    transition: 10s ease-out ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition-delay: 4s ;
+
+       
+
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+
+    color: rgba(235, 14, 14, 0.945);
+      transition-duration: 1s;
+
+}
+#navbar li a.active ::after,
+#navbar li a:hover::after{
+content:"" ;
+width:40px ;
+height:2px ;
+background:rgb(252, 9, 9) ;
+position:absolute;
+bottom:-2px ;
+top: -5px;
+left: 35px;
+align-items: center;
+transition-duration: 3s ease;
+transition: s  ease-out;
+
+
+
+
+}
+#mobile{
+    display: none; 
+    align-items: center;
+    cursor: pointer;
+    
+}
+#close{
+    display: none;
+}
+/*hero styling*/
+
+#hero {
+    height:90vh;
+    width: 100%;
+    background-position: top 70% right 0;
+    background-size: cover;
+    padding: 45px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: url("Mwanzocollection/bgnd.png");
+    transition-duration: 3s;
+    transition-property: initial;
+    
+    
+
+}
+#hero h4 {
+padding-bottom: 15px;
+color: antiquewhite;
+
+}
+
+
+#hero h1 {
+color:white;
+
+}
+#hero h2{
+    color:whitesmoke;
+}
+
+#hero button{
+ 
+    background-color: rgba(229, 231, 230, 0.808);
+    color: rgb(0, 0, 0);
+    padding: 14px 80px 14px 65px;
+    border: 0;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    text-decoration-line: none;
+
+
+}
+
+#hero button:hover{
+    background: rgb(62, 3, 70);
+    color: black;
+    transition-duration: 3s;
+    text-decoration: none;
+    
+
+}
+
+
+.sectionp1{
+    padding: 40px 80px;
+}
+#feature .febox{
+    width: 150px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    margin: 15px 0;
+
+
+}
+
+
+#feature .febox:hover{
+    box-shadow: 10px 10px 54px rgba(70, 60, 220, 0.1);
+
+
+
+
+}
+#feature .febox h6{
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius:4px ;
+    color: rgb(255, 0, 0);
+    background-color: black;
+    display: inline-block;
+
+
+}
+#feature .febox img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+
+#feature .febox:nth-child(2) h6{
+    background-color:rgb(14, 13, 13) ;
+
+}
+#feature .febox:nth-child(3) h6{
+    background-color:rgb(5, 5, 5) ;
+
+}
+#feature .febox:nth-child(4) h6{
+    background-color:rgb(10, 10, 10);
+
+}
+#feature .febox:nth-child(5) h6{
+    background-color:rgb(2, 2, 2) ;
+
+}
+#feature .febox:nth-child(6) h6{
+    background-color:rgb(7, 7, 7);
+
+}
+#feature .febox:nth-child(7) h6{
+    background-color:rgb(12, 12, 12) ;
+
+}
+
+#product1{
+    text-align: center;
+    color: white;
+
+}
+
+#product1 .procontainer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    width: 30%x;
+    flex-wrap: wrap;
+
+    
+    /* check on this padding */
+
+}
+
+#product1 .pro{
+    width: 25%;
+    min-width: 180px;
+    padding: 10px 12px;
+    border: 1px solid rgb(5, 5, 5);
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow:3px 10px 10px rgba(31, 30, 30, 0.986) ;
+    margin: 15px 0;
+    transition: 0.02s ease-out;
+    position: relative;
+    margin:15px 0;
+    background-color: black;
+    
+    
+
+}
+
+#product1 .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+/*image display*/
+#product1 .pro img{
+    width: 100%;
+    border-radius: 0;
+    height: 200px;
+
+}
+#product1 .pro .description{
+    text-align: start;
+    padding: 7px 0;
+}
+
+#product1 .pro .description span{
+    color: gray;
+    font-size: 17px;
+
+}
+
+#product1 .pro .description  h5{
+    
+    color: rgb(255, 253, 253);
+    font-size: 14px;
+
+}
+#product1 .pro .description h4{
+    
+    font-size: 15px;
+    font-weight: 700;
+    color:rgb(255, 253, 253);
+
+}
+
+/*explore more*/
+#banner {
+        height: 30vh;
+        width: 50%;
+        padding-left: 600px;
+        display: flex;
+        align-items: center;
+    }
+
+.section-m1{
+    
+    display: flex;
+    align-items: center;
+}
+button.normal {
+    font-size:14px ;
+    font-weight: 600;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    transition-duration: 3s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    
+
+} 
+#banner button:hover{
+    background: red;
+    color: black;
+
+
+}
+
+#sm-banner{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*newsletter*/
+#newsletter{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-color: gray;
+    width: 90%;
+    background-size: cover;
+    
+}
+#newsletter h4{
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+#newsletter p{
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+#newsletter .form{
+    display: flex;
+    width: 40%;
+    
+}
+
+#newsletter input{
+    height: 2.152rem;
+    padding: 0 1,25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#newsletter button{
+    background-color: rgb(7, 7, 7);
+    color: white;
+    white-space:nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-image: url(Artwork/bgnd1.jpg);
+    background-size: cover;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer .logo{
+    margin-bottom: 30px;
+}
+
+footer h4{
+    font-size: 14px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+footer p{
+    font-size:13px ;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+footer a{
+    font-size: 13px;
+    text-decoration: none;
+    color: #222;
+    margin-bottom: 10px;
+}
+footer.follow{
+    margin-top: 20px;
+    color: #222;
+
+}
+footer.follow i{
+    color: rgb(0, 236, 236);
+    padding-right: 4px;
+    cursor: pointer;
+}
+footer.install.row img{
+    border: 1px solid aqua;
+    border-radius: 6px;
+}
+footer.install img{
+    margin: 10px 0 15px 0;
+}
+footer.follow i:hover,
+footer a:hover{
+    color: rgb(253, 255, 255);
+
+}
+footer.cpr{
+    width: 100%;
+    text-align: center;
+}
+/* shop styling */
+#page-header{
+    background-image:url(webimgs/papo.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
+
+#page-header h2,
+#page-header p{
+    color: #ffffff;
+}
+#pagination{
+    text-align: center;
+}
+#pagination a {
+    text-decoration: none;
+    background-color: rgba(51, 53, 53, 0.938);
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: 600;
+}
+#pagination a i{
+    font-size: 16px;
+    font-weight: 600;
+   
+}
+
+/*single product styling*/
+#prodetails{
+    display: flex;
+    margin-right: 50px;
+}
+
+#prodetails .single-pro-image{
+    width: 50%;
+    margin-right: 200px;
+    padding-bottom: 10px;
+}
+
+.small-image-group{
+    display: flex;
+    padding-top: 0;
+    
+}
+
+.small-image-column{
+    flex-basis: 20%;
+    cursor: pointer;
+}
+#prodetails .single-pro-details{
+    width: 50%;
+    padding-top: 30px;
+}
+
+#prodetails .single-pro-details h4{
+    padding: 5px 0 5px 0;
+    color:whitesmoke;
+}
+#prodetails .single-pro-details h2{
+    font-size: 20px;
+    color:whitesmoke;
+}
+#prodetails .single-pro-details select{
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    
+}
+
+#prodetails .single-pro-details input{
+    width: 50px;
+    height: 20px;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#prodetails .single-pro-details input:focus{
+    outline: none;
+}
+#prodetails .single-pro-details button{
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+#prodetails .single-pro-details span{
+    line-height: 25px;
+}
+#like{
+    color: black;
+}
+
+/*blog styling*/
+
+#blog{
+    padding: 150px 150px 0 150px;
+}
+#blog .blog-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom:90px ;
+}
+#blog .blog-img{
+    width: 50%;
+    margin-right: 40px;
+    object-fit: cover;
+    background-image: url(Artwork/background.jpg);
+}
+
+#blog .blog-details{
+    width: 50%;
+    padding-right: 200px;
+}
+#blog .blog-details a{
+    text-decoration: none;
+    font-size: 11px;
+    color: black;
+    font-weight: 700;
+    position: relative;
+    transition: 0.4s;
+}
+#blog .blog-details a::after{
+    content: "";
+    width: 50px;
+    height:1px ;
+    background-color:black ;
+    position: absolute;
+    top: 4px;
+    right: -60px;
+}
+#blog .blog-details a:hover{
+    color: blue;
+    
+}
+
+#blog .blog-details a:hover:after{
+    background-color: blue;
+}
+#blog .blog-box h1{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-size:70px;
+    font-weight: 700;
+    color:red;
+    z-index: -9;
+}
+.banja h2{
+    color: red;
+    padding-bottom: 30px;
+}
+
+.wanjapi{
+    height: 500px;
+    width: 500px;
+    background-image: url(AdobeLightroom/5.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: centre;
+    cursor: pointer;
+    justify-content: space-between;
+    padding-top: 20px;
+    
+}
+.wanjapi2{
+    height: 500px;
+    width: 500px;
+    background-image: url(AdobeLightroom/8.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: centre;
+    cursor: pointer;
+
+
+}
+.jaba{    color: white;
+    display: flex;
+    width: 50%;
+    float: right;
+    align-items: center;
+    padding-top: 150px;
+    padding-right: 50px;
+}
+
+.limpueza{
+    color: white;
+    display: flex;
+    width: 50%;
+    float: right;
+    align-items: center;
+    padding-top: 150px;
+    padding-right: 50px;
+
+}
+
+.razor img{
+    width: 50%;
+    height: 40%;
+    background-size: cover;
+    padding-left: 15px;
+
+}
+.singi img{
+    width:50%;
+    height: 70%;
+    background-size: cover;
+    gap: 20px;
+    padding-left: 300px;
+    padding-top: 20px;
+
+
+}
+.banja{
+    color: white;
+    font-size: medium;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*about stylimg*/
+body{
+    background-color: black;
+}
+
+#about-head{
+    display:flex ;
+    align-items: center;
+}
+#about-head img {
+    width: 50%;
+    height: auto;
+}
+#about-head div{
+    padding-left:40px ;
+
+}
+#about-app{
+    text-align: center;
+
+}
+#about-app .video{
+    width: 70%;
+    height: 100%;
+    margin: 30px auto 0 auto;
+}
+#about-app .video video{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+
+}
+.mboto{
+    width: 200px;
+    height: 30%;
+    padding-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/*ipad*/
+@media (max-width:799px) {
+
+#navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: gray;
+    box-shadow: 0 40px 60px black;
+    padding: 80px 0 0 10px;
+    background-image: url(Artwork/kcc.jpg);
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+    .sectionp1 {
+        padding: 40px 40px;
+    }
+
+
+    #navbar.active{
+        right: 0px;
+    }
+        #navbar li{
+        margin-bottom: 25px;
+    }
+    #mobile{
+        display: flex;
+        align-items: center;
+        
+    }
+    #mobile i{
+        color: rgb(224, 17, 17);
+        font-size: 24px;
+        padding-left: 20px;
+    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    
+#close{
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 400px;
+    color: #ff0303;
+    font-size: 22px;
+    
+}
+#lg-bag{
+    display: none;
+}
+#hero {
+    height: 90vh;
+    background-position: top 30% right 30%;
+     padding: 0 80px;
+     
+}
+#feature {  
+    justify-content: center;
+}
+#feature .febox {
+    margin: 10px 10px;
+}
+#product1 .procontainer {
+  
+    justify-content: centre;
+    
+}
+#product1 .pro {
+
+    margin: 5px ;
+    width: 20%;
+}
+#banner {
+    
+    height: 25vh;
+}
+#sm-banner .banner-box {
+    min-width: 100%;
+    height: 30vh;
+}
+#banner3 {
+    padding: 0 30px;
+}
+#banner3 .banner-box {
+ width: 20%;
+}
+#newsletter .form {
+    width: 100%;
+}
+}
+/*responsive blog*/
+.limpueza{
+    color: white;
+    display: flex;
+    width: 50%;
+    float: right;
+    align-items: center;
+    padding-right: 20px;
+    padding-top: 30px;
+
+}
+.jaba{    color: white;
+    display: flex;
+    width: 50%;
+    float: right;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 50px;
+}
+
+
+
+/*about responsive*/
+#about-head {
+    flex-direction: column;
+    
+}
+#about-head img {
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+#about-head div {
+    padding-left: 0px;
+}
+#about-app .video {
+    width: 100%;
+}
+#feature {
+   display: flex;
+}
+
+
+
+/*phone responsiveness*/
+
+
+@media  (max-width :600px){
+    .sectionp1 {
+        padding: 20px ;
+        color: white;
+    }
+    #header {
+        padding: 10px 30px;
+    }
+    .mwili{
+        background-color: black;
+    }
+#close{
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 400px;
+    color: #ff0303;
+    font-size: 22px;
+    
+}
+    #hero {
+     
+        background-position:50%;
+        padding: 0 20px;
+        height:90vh;
+        width: 100%;
+        background-size: cover;
+    }
+    #hero button{
+        background-color: rgb(199, 15, 15);
+        transition: 0.2;
+        transition-duration: 2s;
+    }
+    #feature .febox {
+        width: 135px;
+       
+    }
+    #feature {
+        
+        justify-content: space-between;
+       
+    }
+    #product1 .pro {
+        width: 100%;
+        background-color: black;
+        border-color: rgba(24, 26, 26, 0.425);
+        margin-right: 70px;
+        
+        
+    }
+   
+    #banner {
+        height: 40vh;
+        width: 100%;
+        padding-left: 220px;
+    }
+    #banner3 .banner-box {
+        width: 50%;
+    }
+     
+    #newsletter{
+    background-color: rgba(143, 139, 139, 0.5);
+    width: 100%;
+    
+}
+    #newsletter .form{
+        width: 90%;
+        padding-left: 5px;
+
+}       
+.icon{
+    color: #ffffff;
+}
+.colu{
+    color: white;
+}        
+    
+    /*single product*/
+    #prodetails {
+        display: flex;
+        flex-direction: column;
+    }
+    #prodetails .single-pro-image {
+        width: 400px;
+        margin-right: 0px;
+    }
+    #prodetails .single-pro-details {
+        width: 50%;
+        color: red;
+        
+        
+    }
+    #product1 .procontainer {
+       
+        padding-left: 100px;
+    }
+    #blog {
+        padding: 100px 100px 0 0;
+        margin-right: 15px;
+    }
+    #blog .blog-img{
+        width: 20%;
+        margin-right: 250px;
+    }
+    .blog-details.h4{
+        width: 20%;
+        float: right;
+    }
+    .jaba{    color: white;
+    display: flex;
+    width: 50%;
+    float: left;
+    align-items: center;
+    padding-top: 15px;
+    padding-right: 50px;
+}
+.limpueza{
+    color: white;
+    display: flex;
+    width: 50%;
+    float: right;
+    align-items: center;
+    padding-top: 100px;
+    padding-right: 0;
+
+}
+.singi img{
+    width:50%;
+    height: 70%;
+    background-size: cover;
+    gap: 20px;
+    padding-left: 100px;
+    padding-top: 20px;
+
+
+}
+.razor img{
+    height:500px;
+    width: 400px;
+}
+ .blog-box{
+        width: 70%;}
+           /*banner*/
+    #banner h2{
+        padding: 10px 10px 0 0;
+      
+        
+    }
+    #banner{
+        width: 80%;
+    }
+
+
+
+    }
+ 
