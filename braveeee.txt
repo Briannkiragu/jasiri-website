@@ -51,8 +51,8 @@ if (close){
         font-size: 24px;
         padding-left: 20px;
     }
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-    
+}
+
 #close{
     display: initial;
     position: absolute;
@@ -68,26 +68,26 @@ if (close){
     height: 90vh;
     background-position: top 30% right 30%;
      padding: 0 80px;
-     
+
 }
-#feature {  
+#feature {
     justify-content: center;
 }
 #feature .febox {
     margin: 10px 10px;
 }
 #product1 .procontainer {
-  
+
     justify-content: centre;
-    
+
 }
 #product1 .pro {
 
     margin: 5px ;
-    
+
 }
 #banner {
-    
+
     height: 25vh;
 }
 #sm-banner .banner-box {
@@ -123,7 +123,7 @@ if (close){
     }
 
     #hero {
-     
+
         background-position:55% ;
         padding: 0 20px;
     }
@@ -132,14 +132,14 @@ if (close){
         margin: 0 0 15px 0;
     }
     #feature {
-        
+
         justify-content: space-between;
-       
+
     }
     #product1 .pro {
         width: 100%;
     }
-   
+
     #banner {
         height: 40vh;
     }
@@ -147,12 +147,22 @@ if (close){
         width: 100%;
     }
     #newsletter {
-        
+
         width: 100%;
         padding: 10px 20px;
-        
+
     }
     #newsletter.form{
         width: 100%;
     }
 }
+
+
+
+
+
+pending problems
+adjust the navbar items- reduce the paddi/margin top
+reduce add to cart button size for the mobile query
+make the button clickable so that it adds the product to cart when you click on it
+create a display page for the items so that when a user clicks on the you may also like items it redirects them to that page
