@@ -16,14 +16,8 @@ border-radius: 10px;
 
 
 }
-.mwili{
-background-size: cover;
-background-image: url(Artwork/card.jpg);
-background-color:rgb(255, 253, 253);
-background-size: cover;
-padding-top: 0%;
-height: 80%;
-padding-right: 50px;
+body{
+    background-color: #000000;
 }
 
 
@@ -32,15 +26,19 @@ padding-right: 50px;
 display: flex;
 align-items: center;
 justify-content: center;
+margin-right: 550px;
+
 
 }
 
 #navbar li {
 
 list-style: none;
-padding: 0 2px;
+padding: 0 6px;
 position: relative;
-margin-right: 150px;
+margin-right: 0;
+display: flex;
+align-items: center;
 
 
 }
@@ -161,7 +159,7 @@ li {
   list-style: none;
 }
 .scroll-wrap {
-  position: relative;
+  position: absolute;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -234,12 +232,13 @@ body::-webkit-scrollbar {
   display: inline-block;
   text-align: left;
   margin-bottom: 10%;
-  width: 600px;
+  width: 900px;
   transform: scale(2);
   transition: 1s;
+  margin-top: 10%;
 }
 .actor ul{
-  margin-bottom: 20%;
+  margin-bottom: 0;
 }
 .actor ul li {
   display: inline-block;
@@ -264,7 +263,9 @@ body::-webkit-scrollbar {
 .movie.step-3 .actor ul {
   transform: scale(1);
 }
-
+.rebel{
+    color: red;
+}
 
 
 
@@ -460,6 +461,23 @@ button.normal {
 
 }
 
+/* Add to cart button (site-wide). Moved from inline JS styling. */
+.add-to-cart{
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.add-to-cart.added{
+    background-color: #333333;
+}
+
 #sm-banner{
     display: flex;
     justify-content: space-between;
@@ -567,6 +585,7 @@ footer a{
     text-decoration: none;
     color: #222;
     margin-bottom: 10px;
+    margin-left: 0;
 }
 footer.follow{
     margin-top: 20px;
@@ -631,19 +650,23 @@ footer.cpr{
 .tees{
     height: 300px;
     width: 100%;
-    background-color: rgba(231, 222, 222, 0.877);
+    background-color: rgba(255, 255, 255);
     cursor: pointer;
+    background-image: url(Artwork/5.jpg);
+    background-size: auto;
+    opacity: 80%;
 }
+
 .caps{
     height: 300px;
     width: 100%;
-    background-color: rgba(231, 222, 222, 0.877);
+    background-color: rgba(255, 255, 255);
     cursor: pointer;
 }
 .jackets{
     height: 300px;
     width: 100%;
-    background-color: rgba(231, 222, 222, 0.877);
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
 }
 .majina{
@@ -654,15 +677,17 @@ footer.cpr{
     font-weight: 700;
 }
 /*single product styling*/
+
 #prodetails{
     display: flex;
     margin-right: 30px;
+   
 }
 
 #prodetails .single-pro-image{
-    width: 100%;
+    width: 50%;
     margin-right: 100px;
-    padding-bottom: 10px;
+  
 }
 
 .small-image-group{
@@ -791,8 +816,14 @@ footer.cpr{
     justify-content: space-between;
     padding-top: 20px;
     margin-left: 80px;
+    margin-bottom: 20px;
     
 }
+.wanjapi image :hover{
+    transform: scale(2);
+   
+}
+
 .wanjapi2{
     height: 500px;
     width: 500px;
@@ -804,6 +835,11 @@ footer.cpr{
     margin-left: 80px;
 
 }
+.wanjapi2 :hover{
+    transform: scale(2);
+   
+}
+
 .jaba{    color: white;
     display: flex;
     width: 50%;
@@ -833,14 +869,21 @@ footer.cpr{
 }
 .singi img{
     width:50%;
-    height: 70%;
+    height: 50%;
     background-size: cover;
     gap: 20px;
-    padding-left: 300px;
     padding-top: 20px;
+    margin-left: 300px;
+    align-items: center;
+    
 
 
 }
+.singi :hover{
+    transform: scale(1.1);
+    transition-duration: 3s;
+}
+
 .banja{
     color: white;
     font-size: medium;
@@ -881,14 +924,14 @@ body{
 /*zoomblur fx*/
 * {box-sizing:border-box}
 body, html {padding:0; margin:0} 
-body {background:#232323; color:#fff}
-.opaque {position:absolute; top:0; left:0; right:0; bottom:0; opacity:0; background:#d2d6f1;}
+body {background:#232323; color:#000000}
+.opaque {position:absolute; top:0; left:0; right:0; bottom:0; opacity:0; background:#000000;}
 .lt-ie9 .opaque {display:none;}
-.feature {position:fixed; top:0; z-index:0; width:100%; padding-top:50%; background: url(http://s3.nikecdn.com/pass/NikeBasketball/LeBron_Poster.jpg) center center no-repeat;
+.feature {position:fixed; top:0; z-index:0; width:100%; padding-top:50%; background:url(Artwork/4.jpg) center center no-repeat;
     -webkit-background-size:250%;
        -moz-background-size:250%;
          -o-background-size:250%;
-            background-size:250%;
+            background-size:cover;
     -webkit-box-shadow: 0 -50px 20px -20px #232323 inset;
        -moz-box-shadow: 0 -50px 20px -20px #232323 inset;
             box-shadow: 0 -50px 20px -20px #232323 inset;
@@ -898,7 +941,24 @@ body {background:#232323; color:#fff}
 @media only screen and (min-width:36.250em) {
   .content {width:60%; padding-top:35% }
 }
-
+.black{
+    color: #000000;
+    font-size: medium;
+    display: flex;
+    
+}
+.white{
+    color: #ffffff;
+    font-size: medium;
+}
+.red{
+    color: #ff0000;
+    font-size: medium;
+}
+.green{
+    color: #018601;
+    font-size: medium;
+}
 
 
 
@@ -1084,7 +1144,39 @@ body {background:#232323; color:#fff}
     cursor: pointer;
     
 }
-    #navbar.active ~ #mobile #close{
+
+#navbar{
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 0;
+transition-delay: 1s;
+transition-duration: 1s;
+transition: 1s ease-in-out;
+padding-top: 0;
+
+
+
+
+}
+
+#navbar li {
+
+list-style: none;
+padding: 0 6px;
+position: relative;
+margin-right:200px;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+margin-top: 0;
+
+}
+
+
+
+#navbar.active ~ #mobile #close{
         display: flex;
     }
     #hero {
@@ -1186,6 +1278,15 @@ body {background:#232323; color:#fff}
 .icon{
     color: #ffffff;
 }
+/* make add-to-cart smaller on phones */
+@media (max-width:600px){
+    .add-to-cart{
+        padding: 6px 8px;
+        font-size: 13px;
+        margin-top:6px;
+        margin-left: 0;
+    }
+}
 .colu{
     color: white;
 }        
@@ -1245,19 +1346,31 @@ body {background:#232323; color:#fff}
 .wanjapi2{
     margin-left: 0;
 }
+
+.singi{
+
+    width: 100%;
+    height: 50%;
+}
 .singi img{
-    width:50%;
-    height: 70%;
+    width:70%;
+    height: 80%;
     background-size: cover;
     gap: 20px;
-    padding-left: 100px;
+    padding-left: 0;
     padding-top: 20px;
+    margin-left: 70px;
+  
 
 
 }
+.razor{
+    width: 100%;
+    height: 80;
+}
 .razor img{
-    height:500px;
-    width: 400px;
+    height:700px;
+    width: 100%;
 }
  .blog-box{
         width: 70%;}
@@ -1274,4 +1387,121 @@ body {background:#232323; color:#fff}
 
 
     }
+/*homepage transition styling*/
+.movie {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background:#111;
+}
+.movie.hidden {
+  display: none !important;
+  pointer-events: none;
+}
+.movie .bg {
+  width: 100vw;
+  height: 100vh;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.movie .bg img {
+/*   height:100vh; */
+  transform: scale(1.2);
+  transition: 1s;
+}
+.movie.step-2 .bg img {
+  transform: scale(1.1);
+}
+.movie.step-3 .bg img {
+  transform: scale(1);
+}
+.story,
+.actor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  opacity: 0;
+  transition: 1s;
+}
+.story:before,
+.actor:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: bottom;
+}
+.story-content,
+.actor ul {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 65%;
+  width: 200px;
+  transform: scale(2);
+  transition: 1s;
+}
+.actor ul{
+  margin-bottom: 30%;
+}
+.actor ul li {
+  display: inline-block;
+  vertical-align: top;
+}
+.actor ul li + li {
+  margin-left: 0;
+}
+.movie.step-2 .story,
+.movie.step-3 .story {
+  opacity: 1;
+}
+.movie.step-2 .story-content {
+  transform: scale(1);
+}
+.movie.step-3 .story-content {
+  transform: scale(0.5);
+}
+.movie.step-3 .actor {
+  opacity: 1;
+}
+.movie.step-3 .actor ul {
+  transform: scale(1);
+}
+
  
+/*zoomblur fx*/
+* {box-sizing:border-box}
+body, html {padding:0; margin:0} 
+body {background:#232323; color:#fff}
+.opaque {position:absolute; top:0; left:0; right:0; bottom:0; opacity:0; background:#d2d6f1;}
+.lt-ie9 .opaque {display:none;}
+.feature {position:fixed; top:0; z-index:0; width:100%; padding-top:50%; background:url(Artwork/4.jpg) center center no-repeat;
+    background-size: auto;
+    -webkit-background-size:150%;
+       -moz-background-size:250%;
+         -o-background-size:250%;
+            background-size:150%;
+    -webkit-box-shadow: 0 -50px 20px -20px #232323 inset;
+       -moz-box-shadow: 0 -50px 20px -20px #232323 inset;
+            box-shadow: 0 -50px 20px -20px #232323 inset;
+  }
+.content {position:relative; z-index:1; padding-top:45%; width:90%; margin:0 auto;}
+
+@media only screen and (min-width:36.250em) {
+  .content {width:60%; padding-top:35% }}
