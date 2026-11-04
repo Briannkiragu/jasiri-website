@@ -2,19 +2,80 @@ const bar = document.getElementById('bar');
 const nav = document.getElementById('navbar');
 const close = document.getElementById('close');
 
-if(bar){
-bar.addEventListener('click', () =>{
-    nav.classList.add('active')
-})
+const legacyFooter = document.querySelector('footer:not(.home-footer)');
+if (legacyFooter) {
+  legacyFooter.outerHTML = `
+    <footer class="home-footer">
+      <div class="home-footer-brand">
+        <a class="brand-mark" href="index.html">JASIRI<span>MCMLXIII</span></a>
+        <p>Independent streetwear for the soul rebels.</p>
+      </div>
+      <div class="home-footer-links">
+        <h2>Explore</h2>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">Our story</a>
+        <a href="blog.html">Journal</a>
+        <a href="Cart.html">Your cart</a>
+      </div>
+      <div class="home-footer-contact">
+        <h2>Visit us</h2>
+        <p>Jevanjee Gardens, Moi Avenue</p>
+        <p>Monday to Friday · 10:00–18:00</p>
+        <a href="tel:0705061968">0705 061 968</a>
+      </div>
+      <p class="home-footer-note">© Jasiri. Rooted in Nairobi.</p>
+    </footer>`;
 }
 
-if(close){
-close.addEventListener('click', () =>{
-    nav.classList.remove('active')
-})
+function setMenuOpen(isOpen) {
+  if (!nav) return;
+  nav.classList.toggle('active', isOpen);
+  close?.classList.toggle('is-visible', isOpen);
+  bar?.setAttribute('aria-expanded', String(isOpen));
 }
 
+function makeMenuControlAccessible(control, label) {
+  if (!control) return;
+  control.setAttribute('role', 'button');
+  control.setAttribute('tabindex', '0');
+  control.setAttribute('aria-label', label);
+  control.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      control.click();
+    }
+  });
+}
 
+makeMenuControlAccessible(bar, 'Open navigation menu');
+makeMenuControlAccessible(close, 'Close navigation menu');
+
+if (bar && nav) {
+  bar.setAttribute('aria-controls', 'navbar');
+  bar.setAttribute('aria-expanded', 'false');
+  bar.addEventListener('click', () => setMenuOpen(true));
+}
+
+if (close && nav) {
+  close.addEventListener('click', () => setMenuOpen(false));
+}
+
+nav?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => setMenuOpen(false));
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && nav?.classList.contains('active')) {
+    setMenuOpen(false);
+    bar?.focus();
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 799 && nav?.classList.contains('active')) {
+    setMenuOpen(false);
+  }
+});
 
 /*about zoomblur*/
 if (window.jQuery) {
@@ -52,42 +113,7 @@ if (window.jQuery) {
       }
   });
 
-  /*blog credits fx*/
-  lasScrTop = 0;
-  opa = 1;
-  sca = 5;
-  $(window).scroll(function () {
-    winTop = $(this).scrollTop();
-    winMid = $(window).height() / 2 + winTop;
-    winBot = $(window).height() + winTop;
-    // scroll到li,執行動態
-    $(".scroll-wrap li").each(function () {
-      liHei = $(this).height();
-      liOff = $(this).offset();
-      liTop = liOff.top;
-      liBot = liTop + liHei;
-      if (liBot <= winMid || liTop >= winBot) {
-        // li滑出視窗時移除 inView
-        $(this).removeClass("inView");
-      } else if (liTop <= winMid) {
-        // li滑到中間時，加入 inView
-        $(this).addClass("inView");
-      }
-      inViewEq = $(".inView").index() + 1;
-      console.log(inViewEq);
-      $(".movie")
-        .attr("class", "")
-        .addClass("movie step-" + inViewEq);
-    });
-    // 判斷scroll往上滑或往下滑
-    if (winTop > lasScrTop) {
-      // 往下滑
-    } else {
-      // 往上滑
-    }
-    lasScrTop = winTop;
-  });
-} else {
+} else if (document.querySelector('.feature')) {
   console.warn('jQuery not found: skipping legacy scroll effects in bravej.js');
 }
 
@@ -116,7 +142,7 @@ if (window.jQuery) {
   }
 
   function findTitleFromPro(pro){
-    const title = pro.querySelector('.description h5') || pro.querySelector('.description span');
+    const title = pro.querySelector('.catalog-product-name') || pro.querySelector('.description h5') || pro.querySelector('.description span');
     return title?.textContent.trim() || pro.querySelector('img')?.alt?.trim() || 'Product';
   }
 
@@ -155,12 +181,17 @@ if (window.jQuery) {
   // enhance product cards: inject Add to Cart button if none
   function enhanceProducts(){
     document.querySelectorAll('.pro').forEach(pro=>{
-      if(pro.querySelector('.add-to-cart')) return;
-      const btn = document.createElement('button');
-      btn.className = 'add-to-cart';
-      btn.textContent = 'Add to cart';
-      const desc = pro.querySelector('.description');
-      if(desc) desc.appendChild(btn);
+      let btn = pro.querySelector('.add-to-cart');
+      if (!btn) {
+        btn = document.createElement('button');
+        btn.className = 'add-to-cart';
+        btn.type = 'button';
+        btn.textContent = 'Add to cart';
+        const desc = pro.querySelector('.description');
+        if (desc) desc.appendChild(btn);
+      }
+      if (btn.dataset.cartWired) return;
+      btn.dataset.cartWired = 'true';
       btn.addEventListener('click', (e)=>{
         e.preventDefault();
         e.stopPropagation();
