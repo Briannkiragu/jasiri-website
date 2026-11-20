@@ -1,0 +1,16 @@
+<section class="newsletter-signup" aria-labelledby="newsletter-title">
+  <div class="newsletter-signup-copy">
+    <p class="newsletter-signup-eyebrow">Jasiri notes</p>
+    <h2 id="newsletter-title">Stay in the loop.</h2>
+    <p>New arrivals, stories, and occasional offers.</p>
+  </div>
+  <form class="newsletter-signup-form" method="post" action="{% url 'store:newsletter_signup' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <label class="sr-only" for="newsletter-email">Email address</label>
+    <div class="newsletter-signup-controls">
+      <input id="newsletter-email" type="email" name="email" maxlength="254" autocomplete="email" placeholder="Email address" required>
+      <button type="submit">Sign up</button>
+    </div>
+  </form>
+</section>

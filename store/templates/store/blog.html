@@ -1,0 +1,18 @@
+{% extends "store/base.html" %}
+{% block title %}Blog | Jasiri{% endblock %}
+{% block newsletter %}{% include "store/newsletter_signup.html" %}{% endblock %}
+{% block content %}
+<div class="banja">
+  <h2>Waasi Studio</h2>
+</div>
+<section id="models">
+  <div class="jaba">
+    <h4>Beyond the noise of trends, beyond the need to impress. Our clothing is designed for a different journey: to resist the ego, set the soul free, and wear what truly feels like you.</h4>
+  </div>
+  <a class="wanjapi" href="{% url 'store:blog_gallery' 'first' %}" aria-label="View the first Jasiri photo story"></a>
+  <div class="limpueza">
+    <h4>For the quiet confidence that comes from within—a calm knowing that needs no audience. Resist the ego, set the soul free. This is for the life you feel, not just the one the world is meant to see. Wear your inner truth. Stand Jasiri.</h4>
+  </div>
+  <a class="wanjapi2" href="{% url 'store:blog_gallery' 'second' %}" aria-label="View the second Jasiri photo story"></a>
+</section>
+{% endblock %}

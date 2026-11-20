@@ -1,0 +1,72 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Checkout | Jasiri{% endblock %}
+
+{% block content %}
+<section class="sectionp1" style="padding:24px;color:#fff;">
+  <h2>Checkout</h2>
+  <div style="max-width:520px;padding:18px;background:rgba(0,0,0,0.6);border-radius:6px;">
+    {% for item in items %}
+      <div style="display:flex;justify-content:space-between;padding:8px 0;">
+        <span>{{ item.product.name }} × {{ item.quantity }}</span>
+        <strong>KSh {{ item.subtotal|floatformat:0 }}</strong>
+      </div>
+    {% endfor %}
+    <div style="display:flex;justify-content:space-between;padding-top:12px;margin-top:12px;border-top:1px solid rgba(255,255,255,0.12);">
+      <strong>Total</strong>
+      <strong>KSh {{ total|floatformat:0 }}</strong>
+    </div>
+  </div>
+
+  {% if paypal_is_configured %}
+    <div id="paypal-button-container" style="max-width:520px;margin-top:18px;"></div>
+    <p id="paypal-status" role="status"></p>
+  {% else %}
+    <p style="max-width:520px;margin-top:18px;">PayPal sandbox credentials are not configured. Set PAYPAL_CLIENT_ID and PAYPAL_CLIENT_SECRET.</p>
+  {% endif %}
+</section>
+
+{% if paypal_is_configured %}
+<script src="https://www.paypal.com/sdk/js?client-id={{ paypal_client_id|urlencode }}&currency={{ paypal_currency|urlencode }}"></script>
+<script>
+  const statusElement = document.getElementById("paypal-status");
+  paypal.Buttons({
+    createOrder: async function () {
+      const response = await fetch("{% url 'store:paypal_create_order' %}", {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": "{{ csrf_token }}",
+          "Content-Type": "application/json"
+        }
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Could not create PayPal order.");
+      return payload.id;
+    },
+    onApprove: async function (data) {
+      statusElement.textContent = "Completing payment...";
+      const response = await fetch("{% url 'store:paypal_capture_order' %}", {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": "{{ csrf_token }}",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({orderID: data.orderID})
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        statusElement.textContent = payload.error || "Payment could not be completed.";
+        return;
+      }
+      window.location.href = "{% url 'store:cart_detail' %}";
+    },
+    onError: function (error) {
+      statusElement.textContent = error && error.message
+        ? error.message
+        : "PayPal checkout failed. Please try again.";
+    }
+  }).render("#paypal-button-container");
+</script>
+{% endif %}
+{% endblock %}

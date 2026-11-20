@@ -1,0 +1,27 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block title %}Jasiri photo story | Blog{% endblock %}
+{% block content %}
+<section id="models" class="blog-gallery">
+  {% if gallery == "first" %}
+    <div class="razor">
+      <marquee loop="-1" scrollamount="7" width="100%">
+        {% for image in images %}<img src="{% static 'store/AdobeLightroom/' %}{{ image }}" alt="Jasiri editorial photograph">{% endfor %}
+      </marquee>
+    </div>
+  {% else %}
+    <div class="singi">
+      {% for image in images %}<img src="{% static 'store/AdobeLightroom/' %}{{ image }}" alt="Jasiri editorial photograph">{% endfor %}
+    </div>
+  {% endif %}
+</section>
+<section id="pagination" class="sectionp1">
+  <a href="{% url 'store:blog_gallery' 'first' %}" aria-label="First photo story">1</a>
+  <a href="{% url 'store:blog_gallery' 'second' %}" aria-label="Second photo story">2</a>
+  {% if gallery == "first" %}
+    <a href="{% url 'store:blog_gallery' 'second' %}" aria-label="Next photo story"><i class="fa-solid fa-arrow-right"></i></a>
+  {% else %}
+    <a href="{% url 'store:blog_gallery' 'first' %}" aria-label="Previous photo story"><i class="fa-solid fa-arrow-left"></i></a>
+  {% endif %}
+</section>
+{% endblock %}

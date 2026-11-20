@@ -1,0 +1,30 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block title %}{{ title }} | Jasiri{% endblock %}
+{% block content %}
+<section class="catalog-page">
+  <section id="product1" class="sectionp1" aria-labelledby="catalog-title">
+    <header class="catalog-heading">
+      <a class="catalog-back-link" href="{% url 'store:shop_landing' %}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to shop</a>
+      <p class="catalog-eyebrow">Mwanzo collection</p>
+      <h1 id="catalog-title">{{ title }}</h1>
+      <p>Everyday streetwear with a point of view. Find pieces made to move with you.</p>
+    </header>
+    <div class="procontainer">
+      {% for product in products %}
+        <article class="pro">
+          <a class="catalog-product-link" href="{{ product.get_absolute_url }}" aria-label="View {{ product.name }}">
+            <img src="{% static 'store/' %}{{ product.image }}" alt="{{ product.name }}">
+            <span class="description"><span>Mwanzo collection</span><span class="catalog-product-name">{{ product.name }}</span><strong class="price">KSh {{ product.price|floatformat:0 }}</strong></span>
+          </a>
+          <form method="post" action="{% url 'store:cart_add' product.pk %}">
+            {% csrf_token %}<button class="add-to-cart" type="submit">Add to cart</button>
+          </form>
+        </article>
+      {% empty %}
+        <p>No products found in this collection.</p>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block title %}Jasiri | Independent Streetwear{% endblock %}
+{% block body_class %}home-page{% endblock %}
+{% block content %}
+<section id="hero" class="home-hero" aria-labelledby="hero-title">
+  <div class="home-hero-content">
+    <p class="home-eyebrow">Independent streetwear · Nairobi, Kenya</p>
+    <h1 id="hero-title">Wear your own<br><span>direction.</span></h1>
+    <p class="home-hero-copy">Jasiri is for the soul rebels. Thoughtful pieces for people who choose their own path and wear what feels right.</p>
+    <div class="home-hero-actions">
+      <a class="home-cta home-cta-primary" href="{% url 'store:product_list' %}">Shop the collection <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="home-cta home-cta-secondary" href="{% url 'store:shop_landing' %}">Discover Jasiri</a>
+    </div>
+    <p class="home-heritage">Rooted in Nairobi <span aria-hidden="true">·</span> MCMLXIII</p>
+  </div>
+  <a class="hero-scroll-link" href="#featured" aria-label="Scroll to featured pieces">
+    <span>Explore</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+  </a>
+</section>
+<section id="featured" class="home-featured sectionp1" aria-labelledby="featured-title">
+  <div class="home-section-heading">
+    <div><p class="home-eyebrow">Made to move with you</p><h2 id="featured-title">Featured pieces</h2></div>
+    <a class="home-text-link" href="{% url 'store:product_list' %}">View all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+  <div id="product1" class="home-products">
+    {% for product in products %}
+  <div class="pro">
+    <a class="home-product-image" href="{{ product.get_absolute_url }}" aria-label="View {{ product.name }}">
+          <img src="{% static 'store/' %}{{ product.image }}" alt="{{ product.name }}">
+    </a>
+    <div class="description">
+      <span>Mwanzo collection</span>
+      <h5>{{ product.name }}</h5>
+      <h4 class="price">KSh {{ product.price|floatformat:0 }}</h4>
+    </div>
+  </div>
+    {% empty %}
+      <p>No products are available yet. Add products in the <a href="{% url 'admin:index' %}">store admin</a>.</p>
+    {% endfor %}
+  </div>
+</section>
+<section class="home-collection-callout sectionp1">
+  <div><p class="home-eyebrow">No pressure. No side-eyes.</p><h2>Just you, your vibe, and the freedom to keep it real.</h2></div>
+  <a class="home-cta home-cta-primary" href="{% url 'store:shop_landing' %}">Explore the collection <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+</section>
+{% endblock %}
