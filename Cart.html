@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cart </title>
+  <link rel="stylesheet" href="brvstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- header (matches site header) -->
+<section id="header">
+  <a class="site-wordmark" href="index.html" aria-label="Jasiri home">JASIRI</a>
+  <ul id="navbar">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="shop.html">shop</a></li>
+    <li><a href="blog.html">blog</a></li>
+    <li><a href="about.html">about</a></li>
+    <li id="lg-bag"><a class="active" href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+  </ul>
+  <div id="mobile">
+    <i id="bar" class="fas fa-outdent"></i>
+    <div id="close"><i class="fas fa-times"></i></div>
+  </div>
+</section>
+
+<main class="sectionp1" style="padding:24px;">
+  <h2>Your Cart</h2>
+  <p id="cart-empty" style="display:none;color:#fff;">Your cart is empty.</p>
+
+  <div class="cart-wrap">
+    <table id="cart-table" style="width:100%;border-collapse:collapse;color:#fff;">
+      <thead>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+          <th style="text-align:left;padding:10px">Product</th>
+          <th style="width:120px;text-align:center">Price</th>
+          <th style="width:120px;text-align:center">Qty</th>
+          <th style="width:120px;text-align:center">Subtotal</th>
+          <th style="width:80px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cart-row">
+          <td style="padding:12px;display:flex;gap:12px;align-items:center">
+            <img src="Mwanzocollection/tees/T1.jpg" alt="item" style="width:80px;height:80px;object-fit:cover">
+            <div>
+              <div class="cart-title">Mwanzo Tee</div>
+              <div class="cart-meta">Size: M • Color: Black</div>
+            </div>
+          </td>
+          <td style="text-align:center"> <span class="cart-price">1200</span></td>
+          <td style="text-align:center">
+            <input class="qty" type="number" min="1" value="1" style="width:60px;padding:6px;border-radius:4px;border:1px solid #ccc">
+          </td>
+          <td style="text-align:center"> <span class="cart-sub">1200</span></td>
+          <td style="text-align:center"><button class="remove" style="background:transparent;border:0;color:#f44336;cursor:pointer">Remove</button></td>
+        </tr>
+
+        <tr class="cart-row">
+          <td style="padding:12px;display:flex;gap:12px;align-items:center">
+            <img src="Mwanzocollection/tees/9.jpg" alt="item" style="width:80px;height:80px;object-fit:cover">
+            <div>
+              <div class="cart-title">Mwanzo Tee (Limited)</div>
+              <div class="cart-meta">Size: L • Color: White</div>
+            </div>
+          </td>
+          <td style="text-align:center"> <span class="cart-price">600</span></td>
+          <td style="text-align:center">
+            <input class="qty" type="number" min="1" value="2" style="width:60px;padding:6px;border-radius:4px;border:1px solid #ccc">
+          </td>
+          <td style="text-align:center"> <span class="cart-sub">1200</span></td>
+          <td style="text-align:center"><button class="remove" style="background:transparent;border:0;color:#f44336;cursor:pointer">Remove</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <aside style="margin-top:18px;padding:18px;background:rgba(0,0,0,0.6);border-radius:6px;max-width:360px;color:#fff;">
+      <h4>Cart Summary</h4>
+      <div style="display:flex;justify-content:space-between;padding:8px 0"><span>Subtotal</span><strong id="total">2400</strong></div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0"><span>Shipping</span><span>—</span></div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:8px"><strong>Total</strong><strong id="grand">2400</strong></div>
+      <button id="checkout" style="margin-top:12px;width:100%;padding:10px 12px;background:#ff0000;color:#fff;border:0;border-radius:4px;cursor:pointer">Proceed to Checkout</button>
+    </aside>
+  </div>
+</main>
+
+<footer class="sectionp1">
+  <div style="color:#fff;padding:18px">© Jasiri</div>
+</footer>
+
+<script src="bravej.js"></script>
+
+</body>
+</html>
