@@ -63,6 +63,11 @@ Secure session and CSRF cookies are enabled when `DJANGO_DEBUG=false`. Configure
 the production database and HTTPS before launch, and do not use Django's
 development server in production.
 
+On Vercel, Django also allows the exact deployment hostname from Vercel's
+`VERCEL_URL` environment variable. Add any custom domain to
+`DJANGO_ALLOWED_HOSTS` as a comma-separated hostname list (without `https://`),
+then redeploy.
+
 ## Tests
 
 ```powershell

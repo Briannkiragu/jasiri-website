@@ -16,6 +16,9 @@ ALLOWED_HOSTS = [
     for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
     if host.strip()
 ]
+vercel_host = os.environ.get("VERCEL_URL", "").strip()
+if vercel_host:
+    ALLOWED_HOSTS.append(vercel_host)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
