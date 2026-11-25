@@ -1,0 +1,24 @@
+{% extends "store/base.html" %}
+
+{% block title %}Create an account | Jasiri{% endblock %}
+
+{% block content %}
+<section class="sectionp1">
+  <h1>Create your Jasiri account</h1>
+  <p>We’ll email you a verification link before you can sign in.</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+      </p>
+    {% endfor %}
+    <button class="normal" type="submit">Create account</button>
+  </form>
+  <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+</section>
+{% endblock %}

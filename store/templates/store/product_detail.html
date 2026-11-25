@@ -1,0 +1,41 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block title %}{{ product.name }} | Jasiri{% endblock %}
+{% block content %}
+<section id="prodetails" class="sectionp1">
+  <div class="single-pro-image">
+    <img src="{% static 'store/' %}{{ product.image }}" id="mainimg" alt="{{ product.name }}">
+  </div>
+  <div class="single-pro-details">
+    <h6>Mwanzo collection / {{ product.get_category_display }}</h6>
+    <h4>{{ product.name }}</h4>
+    <h2>KSh {{ product.price|floatformat:0 }}</h2>
+    {% if product.description %}<p>{{ product.description|linebreaksbr }}</p>{% endif %}
+    <form method="post" action="{% url 'store:cart_add' product.pk %}">
+      {% csrf_token %}
+      <label for="quantity">Quantity</label>
+      <input id="quantity" name="quantity" type="number" min="1" max="99" value="1" required>
+      <button class="normal" type="submit">Add to cart</button>
+    </form>
+  </div>
+</section>
+{% if recommendations %}
+  <section id="product1" class="sectionp1">
+    <h2>You May Also Like</h2>
+    <div class="procontainer">
+      {% for recommendation in recommendations %}
+        <div class="pro">
+          <a class="catalog-product-link" href="{{ recommendation.get_absolute_url }}">
+            <img src="{% static 'store/' %}{{ recommendation.image }}" alt="{{ recommendation.name }}">
+            <div class="description">
+              <span>Mwanzo collection</span>
+              <h5 class="catalog-product-name">{{ recommendation.name }}</h5>
+              <h4 class="price">KSh {{ recommendation.price|floatformat:0 }}</h4>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+{% endblock %}

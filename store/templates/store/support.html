@@ -1,0 +1,14 @@
+{% extends "store/base.html" %}
+{% block title %}Contact &amp; Support | Jasiri{% endblock %}
+{% block body_class %}support-page{% endblock %}
+{% block content %}
+<section class="sectionp1 support-content" aria-labelledby="support-title">
+  <p class="home-eyebrow">Jasiri · Nairobi, Kenya</p>
+  <h1 id="support-title">Contact &amp; Support</h1>
+  <p>For current delivery information, privacy and terms questions, or help with your account, wishlist, or an order, please contact Jasiri directly.</p>
+  <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/254705061968">0705 061 968</a></p>
+  <p><strong>Address:</strong> Jevanjee Gardens, Moi Avenue</p>
+  <p><strong>Hours:</strong> 10:00-18:00 Monday to Friday</p>
+  <p><a class="normal" href="{% url 'store:shop_landing' %}">Return to the shop</a></p>
+</section>
+{% endblock %}

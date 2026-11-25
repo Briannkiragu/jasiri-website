@@ -1,0 +1,159 @@
+.store-messages {
+    margin: 1rem auto;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+}
+
+.store-message {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #fff;
+    padding: 0.75rem 1rem;
+}
+
+.store-message.error {
+    border-color: #f44336;
+}
+
+.store-message.success {
+    border-color: #43a047;
+}
+
+.newsletter-signup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 48px clamp(20px, 7vw, 88px);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    background: #101010;
+    color: #f5f2ee;
+}
+
+.newsletter-signup-copy {
+    max-width: 460px;
+}
+
+.newsletter-signup-eyebrow {
+    margin: 0 0 8px;
+    color: #c52a32;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.newsletter-signup-copy h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 26px;
+}
+
+.newsletter-signup-copy > p:last-child {
+    margin: 0;
+    color: #aaa39e;
+    font-size: 14px;
+}
+
+.newsletter-signup-form {
+    width: min(100%, 500px);
+}
+
+.newsletter-signup-controls {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    border-bottom: 1px solid #77716d;
+}
+
+.newsletter-signup-controls input {
+    min-width: 0;
+    flex: 1;
+    padding: 12px 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+}
+
+.newsletter-signup-controls input::placeholder {
+    color: #aaa39e;
+}
+
+.newsletter-signup-controls button {
+    align-self: center;
+    padding: 10px 16px;
+    border: 1px solid #77716d;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+}
+
+.newsletter-signup-controls :is(input, button):focus-visible {
+    outline: 2px solid #ed3038;
+    outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    .newsletter-signup {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 24px;
+        padding: 38px 22px;
+    }
+
+    .newsletter-signup-form {
+        width: 100%;
+    }
+}
+
+.checkout-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.auth-page {
+    box-sizing: border-box;
+    display: flex;
+    min-height: 55vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 30rem);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.auth-page form {
+    width: min(100%, 24rem);
+}
+
+.auth-page form p {
+    text-align: left;
+}
+
+.auth-page form input:not([type="hidden"]) {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.auth-page button.normal {
+    display: block;
+    margin: 1.25rem auto 0;
+}
+
+#mobile .mobile-menu-control {
+    border: 0;
+    background: transparent;
+    font: inherit;
+}
+
+.sr-only {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

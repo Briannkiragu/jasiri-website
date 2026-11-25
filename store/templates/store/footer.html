@@ -1,0 +1,40 @@
+<footer class="sectionp1 site-footer" aria-label="Site footer">
+  <div class="footer-contact" id="contact">
+    <h4>Contact</h4>
+    <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Jevanjee+Gardens%2C+Moi+Avenue%2C+Nairobi%2C+Kenya" target="_blank" rel="noopener noreferrer">Jevanjee Gardens, Moi Avenue</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+254705061968">0705 061 968</a></p>
+    <p><strong>Hours:</strong> 10:00-18:00 Monday to Friday</p>
+  </div>
+  <div class="col">
+    <h4>About</h4>
+    <a href="{% url 'store:about' %}">About us</a>
+    <a href="{% url 'store:support' %}">Delivery information</a>
+    <a href="{% url 'store:support' %}">Privacy policy</a>
+    <a href="{% url 'store:support' %}">Terms &amp; conditions</a>
+    <a href="{% url 'store:support' %}">Contact us</a>
+  </div>
+  <div class="col">
+    <h4>My account</h4>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'store:account' %}">My account</a>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Sign out</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}">Sign in</a>
+      <a href="{% url 'store:register' %}">Create an account</a>
+    {% endif %}
+    <a href="{% url 'store:cart_detail' %}">View cart</a>
+    <a href="{% url 'store:support' %}">My wishlist</a>
+    <a href="{% url 'store:support' %}">Track my order</a>
+    <a href="{% url 'store:support' %}">Help</a>
+  </div>
+  <div class="footer-follow">
+    <h4>Follow us</h4>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/jas1ri/" target="_blank" rel="noopener noreferrer" aria-label="Jasiri on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://wa.me/254705061968" target="_blank" rel="noopener noreferrer" aria-label="Contact Jasiri on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</footer>

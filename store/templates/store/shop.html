@@ -1,0 +1,24 @@
+{% extends "store/base.html" %}
+{% block title %}Shop Jasiri | Mwanzo Collection{% endblock %}
+{% block body_class %}shop-page{% endblock %}
+{% block main_class %}shop-page{% endblock %}
+{% block newsletter %}{% include "store/newsletter_signup.html" %}{% endblock %}
+{% block content %}
+<header class="shop-intro">
+  <p class="shop-eyebrow">Jasiri · Mwanzo collection</p>
+  <h1>Find your next favourite</h1>
+  <p>Everyday streetwear with a point of view. Explore the collection and find pieces made to move with you.</p>
+</header>
+<nav class="shop-categories" aria-label="Shop by category">
+  <a class="shop-category-card shop-category-tees" href="{% url 'store:tee_list' %}">
+    <span class="shop-category-kicker">Mwanzo collection</span>
+    <span class="shop-category-title">Tees</span>
+    <span class="shop-category-action">Explore tees <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+  </a>
+  <a class="shop-category-card shop-category-jackets" href="{% url 'store:jacket_list' %}">
+    <span class="shop-category-kicker">Mwanzo collection</span>
+    <span class="shop-category-title">Jackets</span>
+    <span class="shop-category-action">Explore jackets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+  </a>
+</nav>
+{% endblock %}

@@ -156,3 +156,13 @@ if (close){
         width: 100%;
     }
 }
+
+
+
+
+
+pending problems
+adjust the navbar items- reduce the paddi/margin top
+reduce add to cart button size for the mobile query
+make the button clickable so that it adds the product to cart when you click on it
+create a display page for the items so that when a user clicks on the you may also like items it redirects them to that page

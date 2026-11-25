@@ -1,0 +1,65 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block title %}Your cart | Jasiri{% endblock %}
+{% block footer %}
+<footer class="sectionp1">
+  <div style="color:#fff;padding:18px">© Jasiri</div>
+</footer>
+{% endblock %}
+{% block content %}
+<section class="sectionp1" style="padding:24px;">
+  <h2>Your Cart</h2>
+  {% if items %}
+    <div class="cart-wrap">
+      <table class="store-cart-table" style="width:100%;border-collapse:collapse;color:#fff;">
+        <thead>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
+            <th style="text-align:left;padding:10px">Product</th>
+            <th style="width:120px;text-align:center">Price</th>
+            <th style="width:120px;text-align:center">Qty</th>
+            <th style="width:120px;text-align:center">Subtotal</th>
+            <th style="width:80px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+            <tr>
+              <td style="padding:12px;display:flex;gap:12px;align-items:center">
+                <img src="{% static 'store/' %}{{ item.product.image }}" alt="{{ item.product.name }}" style="width:80px;height:80px;object-fit:cover">
+                <div>
+                  <div class="cart-title">{{ item.product.name }}</div>
+                  <div class="cart-meta">Mwanzo collection · {{ item.product.get_category_display }}</div>
+                </div>
+              </td>
+              <td style="text-align:center">KSh {{ item.product.price|floatformat:0 }}</td>
+              <td>
+                <form method="post" action="{% url 'store:cart_update' item.product.pk %}">
+                  {% csrf_token %}
+                  <label class="sr-only" for="quantity-{{ item.product.pk }}">Quantity for {{ item.product.name }}</label>
+                  <input id="quantity-{{ item.product.pk }}" name="quantity" type="number" min="1" max="99" value="{{ item.quantity }}" required style="width:60px;padding:6px;border-radius:4px;border:1px solid #ccc">
+                  <button class="normal" type="submit">Update</button>
+                </form>
+              </td>
+              <td style="text-align:center">KSh {{ item.subtotal|floatformat:0 }}</td>
+              <td style="text-align:center"><form method="post" action="{% url 'store:cart_remove' item.product.pk %}">{% csrf_token %}<button class="remove" type="submit" style="background:transparent;border:0;color:#f44336;cursor:pointer">Remove</button></form></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <aside class="store-cart-summary" style="margin-top:18px;padding:18px;background:rgba(0,0,0,0.6);border-radius:6px;max-width:360px;color:#fff;">
+        <h4>Cart Summary</h4>
+        <div style="display:flex;justify-content:space-between;padding:8px 0"><span>Subtotal</span><strong id="total">KSh {{ total|floatformat:0 }}</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0"><span>Shipping</span><span>—</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:8px"><strong>Total</strong><strong id="grand">KSh {{ total|floatformat:0 }}</strong></div>
+        <form method="post" action="{% url 'store:checkout' %}">
+          {% csrf_token %}<button id="checkout" type="submit" style="margin-top:12px;width:100%;padding:10px 12px;background:#ff0000;color:#fff;border:0;border-radius:4px;cursor:pointer">Proceed to Checkout</button>
+        </form>
+        <p class="checkout-note">Secure checkout powered by PayPal.</p>
+      </aside>
+    </div>
+  {% else %}
+    <p style="color:#fff;">Your cart is empty.</p>
+    <a class="normal" href="{% url 'store:shop_landing' %}">Shop the collection</a>
+  {% endif %}
+</section>
+{% endblock %}
